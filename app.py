@@ -11,6 +11,14 @@ st.set_page_config(
     initial_sidebar_state="collapsed",
 )
 
+# =========================================================
+# GOOGLE SEARCH CONSOLE VERIFICATION
+# =========================================================
+st.markdown(
+    '<meta name="google-site-verification" content="Nm0V2swZXkUgdpHNnaluO6JRzlPc3Jaj3qlhonrDsRs" />',
+    unsafe_allow_html=True
+)
+
 BASE = Path(__file__).parent
 
 
@@ -639,6 +647,7 @@ box-sizing:border-box;
     st.markdown("---")
 
     q1, q2, q3 = st.columns(3)
+
 
     # =====================================================
     # CONTACT US
