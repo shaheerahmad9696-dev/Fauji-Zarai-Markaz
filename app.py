@@ -1,4 +1,17 @@
 import streamlit as st
+# Google Analytics
+st.markdown(
+    """
+    <script async src="https://www.googletagmanager.com/gtag/js?id=G-V7XKCXN9ZX"></script>
+    <script>
+      window.dataLayer = window.dataLayer || [];
+      function gtag(){dataLayer.push(arguments);}
+      gtag('js', new Date());
+      gtag('config', 'G-V7XKCXN9ZX');
+    </script>
+    """,
+    unsafe_allow_html=True,
+)
 from pathlib import Path
 
 # =========================================================
