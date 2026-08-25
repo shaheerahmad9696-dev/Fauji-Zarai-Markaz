@@ -1,7 +1,7 @@
 import streamlit as st
 from pathlib import Path
 
-# =========================================================
+# =========================================================S
 # PAGE
 # =========================================================
 st.set_page_config(
@@ -12,21 +12,31 @@ st.set_page_config(
 )
 
 # =========================================================
-# GOOGLE SEARCH CONSOLE VERIFICATION
+# GOOGLE SEARCH CONSOLE + GOOGLE ANALYTICS
 # =========================================================
-st.markdown(
-    '<meta name="google-site-verification" content="Nm0V2swZXkUgdpHNnaluO6JRzlPc3Jaj3qlhonrDsRs" />',
-    unsafe_allow_html=True
+import streamlit.components.v1 as components
+
+components.html(
+    """
+    <script>
+        const meta = document.createElement('meta');
+        meta.name = 'google-site-verification';
+        meta.content = 'Nm0V2swZXkUgdpHNnaluO6JRzlPc3Jaj3qlhonrDsRs';
+        document.head.appendChild(meta);
+
+        const script = document.createElement('script');
+        script.async = true;
+        script.src = 'https://www.googletagmanager.com/gtag/js?id=G-V7XKCXN9ZX';
+        document.head.appendChild(script);
+
+        window.dataLayer = window.dataLayer || [];
+        function gtag(){dataLayer.push(arguments);}
+        gtag('js', new Date());
+        gtag('config', 'G-V7XKCXN9ZX');
+    </script>
+    """,
+    height=0
 )
-
-BASE = Path(__file__).parent
-
-
-def image_file(name):
-    p = BASE / name
-    return str(p) if p.exists() and p.stat().st_size > 0 else None
-
-
 # =========================================================
 # STATE / NAVIGATION
 # =========================================================
